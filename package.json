@@ -6,5 +6,6 @@
         "mongoose": "*",
         "body-parser": "*",
         "method-override": "*"
-    }
+    },
+    "version": "1.0.0"
 }
