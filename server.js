@@ -12,7 +12,7 @@ var assert = require("assert");
 // configuration ===========================================
 
 // config files
-var db = require('./config/db');
+var dbConfig = require('./config/db');
 
 // set our port
 var port = process.env.PORT || 8080; 
@@ -33,11 +33,11 @@ const insertDocuments = function(db, callback) {
       callback(result);
     });
 }
-MongoClient.connect(url, function(err, client) {
+MongoClient.connect(dbConfig.url, function(err, client) {
     assert.equal(null, err);
     console.log("Connected successfully to server");
   
-    const db = client.db(dbName);
+    const db = client.db("meanseed");
   
     insertDocuments(db, function() {
       client.close();
